@@ -1,0 +1,38 @@
+Contact information:
+Name - Tristan Thomas
+ID - 105771156
+Email - trth3572@colorado.edu
+
+Information on what each file contains:
+	- cs3753_add.c:
+	  > This function contains the source code for the system call cs3753_add that will be into the installed kernel. The function sys_cs3753_add() recieves three arguments to the routine: number 1, number2, and a result pointer. The function takes the sum of the two numbers and stores the result in the address of the pointer. I uses printk to log the numbers to be added, added those two numbers, stored the result in designated location,  and used printk to log the result.
+	- Makefile:
+	  > The Makefile contains the original contents of the Makefile provided with the kernel. In addition, I have added instructions to tell the build system about the two new added system calls. 
+	- syscalls.h:
+	  > This file contains the prototypes for my two added system calls. This tells the build system how much space on the heap to allocate. 
+	- syslog:
+	  > This log contains messages about the system sent to the kernel. In my system calls I printed messages to the kernel. At the bottom of the file are the prints. 
+	- additionFunc.c:
+	  > This file contains the source code for my test program to test the sys_cs3753_add() system call.
+	- helloworldSYS.c:
+	  > This file contains the source code for my test program to test the sys_hellowolrd() system call.
+
+Where each file should be located in a standard build tree:
+     - cs3753_add.c: /home/kernel/linux-hwe-4.15.0arch/x86/kernel/cs3753_add.c
+     - Makefile: /home/kernel/linux-hwe-4.15.0arch/x86/kernel/Makefile
+     - syscall_64.tbl: /home/kernel/linux-hwe-4.15.0arch/x86/entry/entry/syscalls/syscall_64.tbl
+     - syscalls.h: /home/kernel/linux-hwe-4.15.0include/linux/syscalls.h
+
+
+Instructions for building and running your test program:
+     - Building additionFunc.c:
+       > gcc additionFunc.c -o runadd
+     - Building helloworldSYS.c:
+       > gcc helloworldSYS.c -o runhello
+     - Running additionFunc.c:
+       > ./runadd
+       > enter 2 numbers
+       > run 'dmesg' to see kernel messege
+     - Running helloworldSYS.c:
+       > ./runhello
+       > run 'dmesg' to see kernel messege
